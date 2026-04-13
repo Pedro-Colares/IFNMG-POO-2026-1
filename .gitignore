@@ -1,0 +1,6 @@
+softwares/
+target/
+build/
+dist/
+nbproject/private/
+*.class
