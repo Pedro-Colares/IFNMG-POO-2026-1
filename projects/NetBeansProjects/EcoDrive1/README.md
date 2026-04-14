@@ -39,7 +39,7 @@ Funcionalidades:
 
 ---
 
-### 👨‍✈️ Motorista
+### 👨‍✈️ 🚗 Motorista
 Representa o motorista do veículo.
 
 Funcionalidades:
