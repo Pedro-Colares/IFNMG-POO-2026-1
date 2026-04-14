@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.gmail.colaresp47.spaceshare;
-
-/**
- *
- * @author liaco
- */
 
 import java.util.ArrayList;
 
