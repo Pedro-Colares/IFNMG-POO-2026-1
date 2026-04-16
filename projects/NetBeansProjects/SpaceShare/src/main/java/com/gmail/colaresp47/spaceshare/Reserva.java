@@ -1,8 +1,13 @@
 package com.gmail.colaresp47.spaceshare;
+
+import java.time.LocalTime;
+
 public class Reserva {
     
     private String usuario;
-    private int horas;
+    private LocalTime horaInicio;
+    private int duracaoHoras;
+    private LocalTime horaTermino;
 
     public Reserva() {
         
@@ -15,11 +20,24 @@ public class Reserva {
         this.usuario = usuario;
     }
 
-    public int getHoras() {
-        return horas;
+    public LocalTime getHoraInicio() {
+        return horaInicio;
     }
-    public void setHoras(int horas) {
-        this.horas = horas;
+    public void setHoraInicio(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
     }
+
+    public int getDuracaoHoras() {
+        return duracaoHoras;
+    }
+    public void setDuracaoHoras(int duracaoHoras) {
+        this.duracaoHoras = duracaoHoras;
+    }
+
+    public LocalTime getHoraTermino() {
+        return horaInicio.plusHours(duracaoHoras);
+    }
+
+    
    
 }

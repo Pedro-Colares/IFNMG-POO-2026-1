@@ -25,28 +25,29 @@ public class Estacao {
         this.listaReservas = listaReservas;
     }
     
-    public boolean adicionarReserva(Reserva r){
-        int horas = 0;
-        
+    public boolean adicionarReserva(Reserva nova){
         for(Reserva i: this.listaReservas){
-            horas += i.getHoras();
+            boolean conflito = nova.getHoraInicio().isBefore(i.getHoraTermino()) &&
+                   nova.getHoraTermino().isAfter(i.getHoraInicio());
+            if(conflito){
+                System.out.println("Devido ao conflito de horario com " 
+                        + i.getUsuario() + " de "+ i.getHoraInicio()  
+                        + " as " + i.getHoraTermino() + ", infelizmente "
+                        + "a reserva nao foi cadastarda.");
+                return false;
+            }
         }
-        if((horas + r.getHoras()) <= 10){
-            this.listaReservas.add(r);
-            System.out.println("Reserva do usuario " + r.getUsuario() + " com " 
-                    + r.getHoras()+ "h de duracao cadastrada com sucesso.");
-            return true;
-        }
-        
-        System.out.println("Devido ao limite de horas da estacao, infelizmente "
-                + "a reserva nao foi cadastrada.");
-        return false;
+        System.out.println("Reserva de " + nova.getUsuario()+ " as " + 
+                nova.getHoraInicio() + ", por " + nova.getDuracaoHoras() + ""
+                        + "h cadastrada com sucesso!");
+        this.listaReservas.add(nova);
+        return true;
     }
     
     public void imprimirMapa(){
-        System.out.println("Estacao: " + this.numero);
+        System.out.println("Estacao " + this.numero + ": ");
         for(Reserva j: listaReservas){
-            System.out.println(j.getUsuario());
+            System.out.println(j.getUsuario() + ": " + j.getHoraInicio() + " - " + j.getHoraTermino());
         }
         
     }
