@@ -7,7 +7,6 @@ public class Reserva {
     private String usuario;
     private LocalTime horaInicio;
     private int duracaoHoras;
-    private LocalTime horaTermino;
 
     public Reserva() {
         

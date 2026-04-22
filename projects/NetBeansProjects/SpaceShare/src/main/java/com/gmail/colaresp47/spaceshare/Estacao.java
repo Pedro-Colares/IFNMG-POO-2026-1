@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Estacao {
     
-    private int numero;
+    protected int numero;
     private ArrayList<Reserva> listaReservas;
     
-    public Estacao() {
+    public Estacao(int numero) {
+        this.numero = numero;
         this.listaReservas = new ArrayList<>();
     }
     
@@ -33,13 +34,13 @@ public class Estacao {
                 System.out.println("Devido ao conflito de horario com " 
                         + i.getUsuario() + " de "+ i.getHoraInicio()  
                         + " as " + i.getHoraTermino() + ", infelizmente "
-                        + "a reserva nao foi cadastarda.");
+                        + "a reserva nao foi cadastarda.\n");
                 return false;
             }
         }
         System.out.println("Reserva de " + nova.getUsuario()+ " as " + 
                 nova.getHoraInicio() + ", por " + nova.getDuracaoHoras() + ""
-                        + "h cadastrada com sucesso!");
+                        + "h cadastrada com sucesso!\n");
         this.listaReservas.add(nova);
         return true;
     }
@@ -49,7 +50,6 @@ public class Estacao {
         for(Reserva j: listaReservas){
             System.out.println(j.getUsuario() + ": " + j.getHoraInicio() + " - " + j.getHoraTermino());
         }
-        
     }
     
 }
