@@ -9,8 +9,6 @@ public class Viagem {
         this.distancia = distancia;
     }
     
-    
-    
     private LocalDate data;
     private double distancia;
 
