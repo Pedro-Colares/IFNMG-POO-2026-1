@@ -1,7 +1,8 @@
 package com.gmail.colaresp47.ecodrive1;
 
 import java.util.ArrayList;
-import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
 
 public class Veiculo {
 
@@ -19,7 +20,6 @@ public class Veiculo {
     private double distanciaTotalPercorrida = 0;
     private Motorista motorista;
     private ArrayList<Viagem> historicoViagens;
-
     
     public String getPlaca(){
         return placa;
@@ -126,6 +126,21 @@ public class Veiculo {
         System.out.println("---------------------------\n");
         System.out.println("Distancia total percorrida: " + totalKm + " Km.");
     }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(this==obj)return true;
+        if(obj==null || getClass()!=obj.getClass())return false;
+        Veiculo other = (Veiculo)obj;
+        return Objects.equals(placa, other.placa);
+    }
+    
+    @Override
+    public int hashCode(){
+        return Objects.hash(placa);
+    }
+    
+    
     
     @Override
     public String toString() {

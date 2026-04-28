@@ -1,6 +1,7 @@
 package com.gmail.colaresp47.spaceshare;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Reserva {
     
@@ -37,6 +38,18 @@ public class Reserva {
         return horaInicio.plusHours(duracaoHoras);
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if(this==obj)return true;
+        if(obj==null || getClass()!=obj.getClass())return false;
+        Reserva other = (Reserva)obj;
+        return Objects.equals(usuario, other.usuario) && 
+               Objects.equals(horaInicio, other.horaInicio);
+    }
     
+    @Override
+    public int hashCode(){
+        return Objects.hash(usuario, horaInicio);
+    }
    
 }

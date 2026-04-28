@@ -1,15 +1,15 @@
 package com.gmail.colaresp47.spaceshare;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Estacao {
     
     protected int numero;
-    private ArrayList<Reserva> listaReservas;
+    private HashSet<Reserva> listaReservas;
     
     public Estacao(int numero) {
         this.numero = numero;
-        this.listaReservas = new ArrayList<>();
+        this.listaReservas = new HashSet<>();
     }
     
     public int getNumero(){
@@ -19,30 +19,21 @@ public class Estacao {
         this.numero = numero;
     }
     
-    public ArrayList<Reserva> getListaReservas(){
+    public HashSet<Reserva> getListaReservas(){
         return listaReservas;
     }
-    public void setListaReserva(ArrayList<Reserva> listaReservas){
+    public void setListaReserva(HashSet<Reserva> listaReservas){
         this.listaReservas = listaReservas;
     }
     
     public boolean adicionarReserva(Reserva nova){
-        for(Reserva i: this.listaReservas){
-            boolean conflito = nova.getHoraInicio().isBefore(i.getHoraTermino()) &&
-                   nova.getHoraTermino().isAfter(i.getHoraInicio());
-            if(conflito){
-                System.out.println("Devido ao conflito de horario com " 
-                        + i.getUsuario() + " de "+ i.getHoraInicio()  
-                        + " as " + i.getHoraTermino() + ", infelizmente "
-                        + "a reserva nao foi cadastarda.\n");
-                return false;
-            }
+        if(listaReservas.add(nova)){
+            System.out.println("Reserva cadastrada com sucesso!\n");
+            return true;
         }
-        System.out.println("Reserva de " + nova.getUsuario()+ " as " + 
-                nova.getHoraInicio() + ", por " + nova.getDuracaoHoras() + ""
-                        + "h cadastrada com sucesso!\n");
-        this.listaReservas.add(nova);
-        return true;
+        
+        System.out.println("Reserva ignorada: este agendamento ja existe.");
+                return false;
     }
     
     public void imprimirMapa(){
