@@ -3,7 +3,7 @@ package com.gmail.colaresp47.spaceshare;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class Reserva {
+public class Reserva implements Comparable<Reserva> {
     
     private String usuario;
     private LocalTime horaInicio;
@@ -50,6 +50,11 @@ public class Reserva {
     @Override
     public int hashCode(){
         return Objects.hash(usuario, horaInicio);
+    }
+    
+    @Override
+    public int compareTo(Reserva outra){
+        return this.horaInicio.compareTo(outra.horaInicio);
     }
    
 }

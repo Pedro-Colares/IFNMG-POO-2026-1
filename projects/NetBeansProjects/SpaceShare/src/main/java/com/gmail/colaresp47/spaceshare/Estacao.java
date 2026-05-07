@@ -1,16 +1,16 @@
 package com.gmail.colaresp47.spaceshare;
 
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.HashMap;
 
 public class Estacao {
     
     protected int numero;
-    private HashSet<Reserva> listaReservas;
+    private TreeSet<Reserva> listaReservas;
     
     public Estacao(int numero) {
         this.numero = numero;
-        this.listaReservas = new HashSet<>();
+        this.listaReservas = new TreeSet<>();
     }
     
     public int getNumero(){
@@ -20,10 +20,10 @@ public class Estacao {
         this.numero = numero;
     }
     
-    public HashSet<Reserva> getListaReservas(){
+    public TreeSet<Reserva> getListaReservas(){
         return listaReservas;
     }
-    public void setListaReserva(HashSet<Reserva> listaReservas){
+    public void setListaReserva(TreeSet<Reserva> listaReservas){
         this.listaReservas = listaReservas;
     }
     
