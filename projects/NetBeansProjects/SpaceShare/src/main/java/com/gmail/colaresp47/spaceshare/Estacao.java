@@ -1,6 +1,7 @@
 package com.gmail.colaresp47.spaceshare;
 
 import java.util.HashSet;
+import java.util.HashMap;
 
 public class Estacao {
     
@@ -36,8 +37,12 @@ public class Estacao {
                 return false;
     }
     
+    public static Estacao buscarEstacao(HashMap<Integer, Estacao> mapa, int numero) {
+        return mapa.get(numero);
+    }
+    
     public void imprimirMapa(){
-        System.out.println("Estacao " + this.numero + ": ");
+        System.out.println("\nEstacao " + this.numero + ": ");
         for(Reserva j: listaReservas){
             System.out.println(j.getUsuario() + ": " + j.getHoraInicio() + " - " + j.getHoraTermino());
         }
