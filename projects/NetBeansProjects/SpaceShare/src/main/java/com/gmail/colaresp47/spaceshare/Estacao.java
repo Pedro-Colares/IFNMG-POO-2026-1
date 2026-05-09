@@ -48,4 +48,8 @@ public class Estacao {
         }
     }
     
+    public double calcularPreco(int horas) { 
+      return horas * 20.0; 
+}
+    
 }

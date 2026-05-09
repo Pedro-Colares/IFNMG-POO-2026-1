@@ -1,7 +1,8 @@
 package com.gmail.colaresp47.spaceshare;
 
-import java.util.HashMap;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SpaceShare {
 
@@ -10,6 +11,8 @@ public class SpaceShare {
         HashMap<Integer, Estacao> estacoes = new HashMap<>();
 
         Estacao e1 = new Estacao(1);
+        SalaReuniao e2 = new SalaReuniao(2, 10, true);
+        CabineCall e3 = new CabineCall(3, true);
 
         Reserva r1 = new Reserva();
         r1.setUsuario("Joao");
@@ -27,19 +30,35 @@ public class SpaceShare {
         r3.setDuracaoHoras(1);
 
         e1.adicionarReserva(r1);
-        e1.adicionarReserva(r2);
-        e1.adicionarReserva(r3);
+        e2.adicionarReserva(r2);
+        e3.adicionarReserva(r3);
 
         estacoes.put(e1.getNumero(), e1);
+        estacoes.put(e2.getNumero(), e2);
+        estacoes.put(e3.getNumero(), e3);
 
-        System.out.println("\n   === MAPA DE ESTACOES ===");
+        System.out.println("\n=== MAPA DE ESTACOES ===");
 
-        Estacao buscada = Estacao.buscarEstacao(estacoes, 1);
-
-        if (buscada != null) {
-            buscada.imprimirMapa();
-        } else {
-            System.out.println("Estacao nao encontrada.");
+        for (Estacao e : estacoes.values()) {
+            e.imprimirMapa();
         }
+
+        e2.exibirEspecificacoes();
+
+        e3.entrarEmChamada();
+
+        System.out.println("\n=== RELATORIO FINANCEIRO ===");
+
+        ArrayList<Estacao> lista = new ArrayList<>();
+
+        lista.add(e1);
+        lista.add(e2);
+        lista.add(e3);
+
+        GerenciadorFinanceiro gf = new GerenciadorFinanceiro();
+
+        gf.imprimirFaturamento(lista, 3);
+
+        
     }
 }

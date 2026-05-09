@@ -18,4 +18,10 @@ public class SalaReuniao extends Estacao {
                 "apenas mesa.\n"));
     }
     
+    @Override 
+    public double calcularPreco(int horas) { 
+        double valorBase = super.calcularPreco(horas); 
+        return (temProjetor) ? valorBase + 50.0 : valorBase; 
+    }
+    
 }

@@ -15,4 +15,10 @@ public class CabineCall extends Estacao {
         }
     }
     
+    @Override
+    public double calcularPreco(int horas){
+        double valorBase = super.calcularPreco(horas);
+        return (isolamentoAcustico) ? valorBase*1.2 : valorBase;
+    }
+    
 }
