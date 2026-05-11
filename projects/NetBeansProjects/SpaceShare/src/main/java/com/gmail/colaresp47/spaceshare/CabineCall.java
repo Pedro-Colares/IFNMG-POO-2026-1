@@ -1,6 +1,6 @@
 package com.gmail.colaresp47.spaceshare;
 
-public class CabineCall extends Estacao {
+public class CabineCall extends Estacao implements Promocional{
     
     private boolean isolamentoAcustico;
 
@@ -17,8 +17,13 @@ public class CabineCall extends Estacao {
     
     @Override
     public double calcularPreco(int horas){
-        double valorBase = super.calcularPreco(horas);
+        double valorBase = calcularPrecoBase(horas);
         return (isolamentoAcustico) ? valorBase*1.2 : valorBase;
     }
+    
+    @Override
+    public void aplicarDesconto(double desconto){
+        System.out.println("Deconto de R$ " + desconto + " aplicado.");
+    } 
     
 }

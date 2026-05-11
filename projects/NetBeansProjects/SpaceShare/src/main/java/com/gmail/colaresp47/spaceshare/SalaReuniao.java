@@ -1,6 +1,6 @@
 package com.gmail.colaresp47.spaceshare;
 
-public class SalaReuniao extends Estacao {
+public class SalaReuniao extends Estacao implements Higienizavel{
     
     private int capacidade;
     private boolean temProjetor;
@@ -12,7 +12,7 @@ public class SalaReuniao extends Estacao {
     }
     
     public void exibirEspecificacoes(){
-        System.out.println("Especificacoes da sala " + getNumero() + ": ");
+        System.out.println("\nEspecificacoes da sala " + getNumero() + ": ");
         System.out.println("Capacidade: " + capacidade + " pessoas");
         System.out.println("Recursos: " + (temProjetor ? "projetor disponivel.\n" : 
                 "apenas mesa.\n"));
@@ -20,8 +20,14 @@ public class SalaReuniao extends Estacao {
     
     @Override 
     public double calcularPreco(int horas) { 
-        double valorBase = super.calcularPreco(horas); 
+        double valorBase = calcularPrecoBase(horas); 
         return (temProjetor) ? valorBase + 50.0 : valorBase; 
+    }
+    
+    @Override
+    public void realizarLimpeza() {
+        System.out.println("Limpando sala, trocando cafe e higienizando "
+                + "projetor.");
     }
     
 }

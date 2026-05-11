@@ -3,7 +3,7 @@ package com.gmail.colaresp47.spaceshare;
 import java.util.TreeSet;
 import java.util.HashMap;
 
-public class Estacao {
+public abstract class Estacao {
     
     protected int numero;
     private TreeSet<Reserva> listaReservas;
@@ -48,8 +48,10 @@ public class Estacao {
         }
     }
     
-    public double calcularPreco(int horas) { 
-      return horas * 20.0; 
-}
+    protected double calcularPrecoBase(int horas){
+        return horas*20;
+    }
+    
+    abstract double calcularPreco(int horas); 
     
 }

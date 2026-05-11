@@ -10,7 +10,7 @@ public class SpaceShare {
 
         HashMap<Integer, Estacao> estacoes = new HashMap<>();
 
-        Estacao e1 = new Estacao(1);
+        Mesa e1 = new Mesa(501);
         SalaReuniao e2 = new SalaReuniao(2, 10, true);
         CabineCall e3 = new CabineCall(3, true);
 
@@ -44,8 +44,12 @@ public class SpaceShare {
         }
 
         e2.exibirEspecificacoes();
+        e2.realizarLimpeza();
 
         e3.entrarEmChamada();
+        
+        Promocional promo = new CabineCall(505, true);
+        promo.aplicarDesconto(10.00);
 
         System.out.println("\n=== RELATORIO FINANCEIRO ===");
 
