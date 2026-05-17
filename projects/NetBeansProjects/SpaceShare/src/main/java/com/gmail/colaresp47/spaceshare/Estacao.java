@@ -33,7 +33,7 @@ public abstract class Estacao {
             return true;
         }
         
-        System.out.println("Reserva ignorada: este agendamento ja existe.");
+        System.out.println("Reserva ignorada: este agendamento ja existe.\n");
                 return false;
     }
     
