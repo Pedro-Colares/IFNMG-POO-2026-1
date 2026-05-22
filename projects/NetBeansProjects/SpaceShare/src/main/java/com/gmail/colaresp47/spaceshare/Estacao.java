@@ -27,14 +27,14 @@ public abstract class Estacao {
         this.listaReservas = listaReservas;
     }
     
-    public boolean adicionarReserva(Reserva nova){
+    public void adicionarReserva(Reserva nova){
         if(listaReservas.add(nova)){
             System.out.println("Reserva cadastrada com sucesso!\n");
-            return true;
+            return;
         }
         
-        System.out.println("Reserva ignorada: este agendamento ja existe.\n");
-                return false;
+        throw new ConflitoReservaException("A sala " +  this.numero + 
+                " ja esta ocupada neste horario");
     }
     
     public static Estacao buscarEstacao(HashMap<Integer, Estacao> mapa, int numero) {

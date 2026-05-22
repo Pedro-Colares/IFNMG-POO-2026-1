@@ -8,8 +8,8 @@ public class SalaReuniao extends Estacao implements Higienizavel{
     public SalaReuniao(int numero, int capacidade, boolean temProjetor) {
         super(numero);
         
-        if(capacidade < 2 || capacidade > 20){
-            throw new RuntimeException("Capacidade invalida");
+        if(capacidade > 20){
+            throw new CapacidadeExcedidaException("Capacidade excedida");
         }
         this.capacidade = capacidade;
         this.temProjetor = temProjetor;
