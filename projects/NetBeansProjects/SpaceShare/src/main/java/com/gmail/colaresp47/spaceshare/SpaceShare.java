@@ -6,7 +6,7 @@ public class SpaceShare {
 
     public static void main(String[] args){
         try{
-            SalaReuniao e1 = new SalaReuniao(100, 50, true);
+            SalaReuniao sr = new SalaReuniao(100, 50, true);
         }catch (CapacidadeExcedidaException e) {
             System.out.println("Erro de capacidade: " + e.getMessage());
         }catch (ConflitoReservaException e) {
