@@ -3,7 +3,6 @@ package com.gmail.colaresp47.spaceshare;
 import java.time.LocalTime;
 
 public class SpaceShare {
-
     public static void main(String[] args){
         try{
             SalaReuniao sr = new SalaReuniao(100, 50, true);
